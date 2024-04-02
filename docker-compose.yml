@@ -1,0 +1,19 @@
+version: '3.4'
+
+name: container-desafio
+services:
+  desafio-dio-docker:
+    image: ${DOCKER_REGISTRY-}desafiodiodocker
+    build:
+      context: .
+      dockerfile: desafio-dio-docker/Dockerfile
+    depends_on:
+    - sqlserver
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      SA_PASSWORD: "SqlServer1"  # Defina sua senha desejada
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"

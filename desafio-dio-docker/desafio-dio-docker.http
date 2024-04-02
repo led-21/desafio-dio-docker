@@ -1,0 +1,41 @@
+@desafio_dio_docker_HostAddress = http://localhost:51366
+
+GET {{desafio_dio_docker_HostAddress}}/todos/
+Accept: application/json
+
+###
+
+GET {{desafio_dio_docker_HostAddress}}/todos/1
+Accept: application/json
+
+###
+POST http://localhost:51366/todos/
+Content-Type: application/json
+
+{
+  "Title": "Comprar tomate",
+  "DueBy": "2024-04-03",
+  "IsComplete": false
+}
+
+
+###
+
+PUT http://localhost:51366/todos/3
+Content-Type: application/json
+
+{
+  "Title": "Comprar bananas",
+  "DueBy": "2024-04-03",
+  "IsComplete": true
+}
+
+
+###
+
+DELETE http://localhost:51366/todos/3
+Accept: application/json
+
+###
+
+
